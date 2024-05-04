@@ -6,6 +6,8 @@ import {deleteAsync} from 'del';
 
 import { pathSource, pathBuild } from './gulp/config.js';
 import { pug } from './gulp/compileHtml.js';
+import { copy, copySvg } from './gulp/copyAssets.js';
+import {optimizeSvg, sprite, createWebp, optimizePng, optimizeJpg} from './gulp/optimizeImages.js';
 
 const server = browserSync.create();
 
@@ -21,6 +23,8 @@ const syncServer = () => {
   });
 
   gulp.watch(`${pathSource.source}/pug/**/*.pug`, gulp.series(pug, refresh));
+  gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
+  gulp.watch('source/img/**/*.svg', gulp.series(copySvg, sprite, refresh));
 };
 
 const refresh = (done) => {
@@ -28,6 +32,6 @@ const refresh = (done) => {
   done();
 };
 
-const start = gulp.series(clean, gulp.parallel(pug), syncServer);
+const start = gulp.series(clean, copy, sprite, gulp.parallel(pug), syncServer);
 
 export { start };
