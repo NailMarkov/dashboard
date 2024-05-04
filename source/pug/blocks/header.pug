@@ -1,0 +1,26 @@
+header.page-header
+  a.page-header__link(href="!#")
+    img(src="img/svg/logo-header.svg", alt="Логотип Админ панели.", width="257", height="76")
+  nav.nav
+    button.nav__btn(type="button")
+      span.visually-hidden Переключение меню
+      svg.nav__icon(aria-hidden="true", focusable="false", width="205", height="62",
+        xmlns="http://www.w3.org/2000/svg")
+        use(xlink:href="img/sprite.svg#logo")
+    .nav__search
+      input.nav__input(type="search", placeholder="Search...")
+    ul.list-user
+      li.list-user__item
+        a.list-user__link(href="!#")
+          svg.list-user__icon(aria-hidden="true", focusable="false", width="205", height="62",
+            xmlns="http://www.w3.org/2000/svg")
+            use(xlink:href="img/sprite.svg#logo")
+      li.list-user__item
+        a.list-user__link(href="!#")
+          svg.list-user__icon(aria-hidden="true", focusable="false", width="205", height="62",
+            xmlns="http://www.w3.org/2000/svg")
+            use(xlink:href="img/sprite.svg#logo")
+    .account-user
+      img(src="!#", alt="Аватарка пользователя.", width="45", height="45")
+      span.account-user__name Austin Robertson
+      span.account-user__post Marketing Administrator
